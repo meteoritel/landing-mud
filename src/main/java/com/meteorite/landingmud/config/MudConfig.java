@@ -17,6 +17,11 @@ public class MudConfig {
 
     public static final class Common {
 
+        // 开关
+        public final ModConfigSpec.BooleanValue fallDamageReductionEnable;
+        public final ModConfigSpec.BooleanValue convensionEnable;
+        public final ModConfigSpec.BooleanValue brickOnFallEnable;
+        public final ModConfigSpec.BooleanValue carrotEasterEggEnable;
         // 落地伤害减免比例
         public final ModConfigSpec.DoubleValue fallDamageReduction;
 
@@ -36,6 +41,26 @@ public class MudConfig {
 
             builder.comment("========== 通用配置 ==========")
                     .push("common");
+
+            fallDamageReductionEnable = builder
+                    .comment("打开落在泥巴方块上时的伤害减免")
+                    .comment("Enable damage reduction when landing on mud block")
+                    .define("fallDamageReductionEnable", true);
+
+            convensionEnable = builder
+                    .comment("打开泥巴方块转化为可疑方块")
+                    .comment("Enable mud block convert to suspicicious block")
+                    .define("convensionEnable", true);
+
+            brickOnFallEnable = builder
+                    .comment("打开摔落到泥巴方块上概率出砖")
+                    .comment("Enable falling onto mud block spawn brick")
+                    .define("brickOnFallEnable", true);
+
+            carrotEasterEggEnable = builder
+                    .comment("打开胡萝卜彩蛋")
+                    .comment("Enable carrot easter egg")
+                    .define("carrotEasterEggEnable", true);
 
             fallDamageReduction = builder
                     .comment("落在泥巴方块上时的伤害减免 (0.0 = 无减免, 0.8 = 减免80%)")

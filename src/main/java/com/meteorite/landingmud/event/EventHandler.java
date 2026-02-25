@@ -74,8 +74,10 @@ public class EventHandler {
         }
 
         // 伤害减免，在已有减伤（掉落保护等）的基础上进行减伤
-        float multiplier = (float) (1 - MudConfig.COMMON.fallDamageReduction.get());
-        event.setDamageMultiplier(event.getDamageMultiplier() * multiplier);
+        if (MudConfig.COMMON.fallDamageReductionEnable.get()) {
+            float multiplier = (float) (1 - MudConfig.COMMON.fallDamageReduction.get());
+            event.setDamageMultiplier(event.getDamageMultiplier() * multiplier);
+        }
 
         // 向上弹起一点点，防止转化为完整方块卡住
         Vec3 motion = player.getDeltaMovement();
@@ -86,14 +88,18 @@ public class EventHandler {
         );
 
         // 掉落到泥巴方块上概率出砖
-        if (RANDOM.nextDouble() < MudConfig.COMMON.probBrickOnFall.get()) {
+        if (MudConfig.COMMON.brickOnFallEnable.get()
+                && RANDOM.nextDouble() < MudConfig.COMMON.probBrickOnFall.get()) {
             serverLevel.addFreshEntity(new ItemEntity(serverLevel,
                     player.getX(), player.getY(), player.getZ(),
                     new ItemStack(Items.BRICK)));
             LOGGER.debug("出砖啦！");
         }
         // 泥巴方块的转化处理，可疑方块填充自定义looter
-        handleMudConversion(serverLevel, onPos, fallBlocks);
+        if (MudConfig.COMMON.convensionEnable.get()) {
+            handleMudConversion(serverLevel, onPos, fallBlocks);
+        }
+
     }
 
     private static void handleMudConversion(ServerLevel level, BlockPos pos, int fallBlocks) {
@@ -162,6 +168,9 @@ public class EventHandler {
     */
     @SubscribeEvent
     public static void onBlockDrops(BlockDropsEvent event) {
+        if (!(MudConfig.COMMON.carrotEasterEggEnable.get())) {
+            return;
+        }
         if (event.getLevel().isClientSide) return;
 
         // 只有玩家生效
