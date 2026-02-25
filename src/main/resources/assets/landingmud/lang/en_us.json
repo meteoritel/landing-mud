@@ -1,0 +1,13 @@
+{
+  "itemGroup.landingmud": "Example Mod Tab",
+  "block.landingmud.example_block": "Example Block",
+  "item.landingmud.example_item": "Example Item",
+
+  "landingmud.configuration.title": "Landing Mud Configs",
+  "landingmud.configuration.section.landingmud.common.toml": "Landing Mud Configs",
+  "landingmud.configuration.section.landingmud.common.toml.title": "Landing Mud Configs",
+  "landingmud.configuration.items": "Item List",
+  "landingmud.configuration.logDirtBlock": "Log Dirt Block",
+  "landingmud.configuration.magicNumberIntroduction": "Magic Number Text",
+  "landingmud.configuration.magicNumber": "Magic Number"
+}

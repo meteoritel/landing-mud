@@ -1,0 +1,70 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wayfinder_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shaper_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raiser_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:host_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gunpowder"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:string"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wheat_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wheat"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:beetroot_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brick"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:clay_ball"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
