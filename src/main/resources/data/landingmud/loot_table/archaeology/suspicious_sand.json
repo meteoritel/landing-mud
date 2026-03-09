@@ -2,69 +2,24 @@
   "type": "minecraft:archaeology",
   "pools": [
     {
+      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:wayfinder_armor_trim_smithing_template"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:shaper_armor_trim_smithing_template"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:raiser_armor_trim_smithing_template"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:host_armor_trim_smithing_template"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:diamond"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:emerald"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:gold_nugget"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:gunpowder"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:string"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:wheat_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:wheat"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:carrot"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:beetroot_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:brick"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:clay_ball"
-        }
-      ],
-      "rolls": 1.0
+        { "type": "minecraft:item", "name": "minecraft:wayfinder_armor_trim_smithing_template", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:shaper_armor_trim_smithing_template", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:raiser_armor_trim_smithing_template", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:host_armor_trim_smithing_template", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:dune_armor_trim_smithing_template", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:sentry_armor_trim_smithing_template", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:diamond", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:emerald", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:gold_nugget", "weight": 4 },
+        { "type": "minecraft:item", "name": "minecraft:iron_ingot", "weight": 3 },
+        { "type": "minecraft:item", "name": "minecraft:wheat_seeds", "weight": 3 },
+        { "type": "minecraft:item", "name": "minecraft:beetroot_seeds", "weight": 3 },
+        { "type": "minecraft:item", "name": "minecraft:brick", "weight": 2 },
+        { "type": "minecraft:item", "name": "minecraft:clay_ball", "weight": 4 }
+      ]
     }
   ]
 }

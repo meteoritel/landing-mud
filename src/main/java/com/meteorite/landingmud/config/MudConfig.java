@@ -19,7 +19,7 @@ public class MudConfig {
 
         // 开关
         public final ModConfigSpec.BooleanValue fallDamageReductionEnable;
-        public final ModConfigSpec.BooleanValue convensionEnable;
+        public final ModConfigSpec.BooleanValue conversionEnable;
         public final ModConfigSpec.BooleanValue brickOnFallEnable;
         public final ModConfigSpec.BooleanValue carrotEasterEggEnable;
         // 落地伤害减免比例
@@ -37,6 +37,14 @@ public class MudConfig {
         public final ModConfigSpec.DoubleValue probBrickOnFall;
         public final ModConfigSpec.DoubleValue probCarrotEasterEgg;
 
+        // 雨天/雷雨天胡萝卜彩蛋概率加成（叠加到基础概率上）
+        public final ModConfigSpec.DoubleValue probCarrotEasterEggRainBonus;
+        public final ModConfigSpec.DoubleValue probCarrotEasterEggThunderBonus;
+
+        // 虚空伤害开关及伤害量
+        public final ModConfigSpec.BooleanValue brickDamageEnable;
+        public final ModConfigSpec.DoubleValue brickDamageAmount;
+
         Common(ModConfigSpec.Builder builder) {
 
             builder.comment("========== 通用配置 ==========")
@@ -47,10 +55,10 @@ public class MudConfig {
                     .comment("Enable damage reduction when landing on mud block")
                     .define("fallDamageReductionEnable", true);
 
-            convensionEnable = builder
+            conversionEnable = builder
                     .comment("打开泥巴方块转化为可疑方块")
-                    .comment("Enable mud block convert to suspicicious block")
-                    .define("convensionEnable", true);
+                    .comment("Enable mud block convert to suspicious block")
+                    .define("conversionEnable", true);
 
             brickOnFallEnable = builder
                     .comment("打开摔落到泥巴方块上概率出砖")
@@ -96,6 +104,26 @@ public class MudConfig {
                     .comment("破坏胡萝卜时触发彩蛋的概率 (扣减1个胡萝卜并随机给予红砖或陶片)")
                     .comment("The probability of triggering Easter egg when destroying carrot (deducting 1 carrot and randomly giving a brick or a pottery sherd)")
                     .defineInRange("probCarrotEasterEgg", 0.015, 0.0, 1.0);
+
+            probCarrotEasterEggRainBonus = builder
+                    .comment("下雨天时胡萝卜彩蛋的额外概率加成（叠加到基础概率上）")
+                    .comment("Additional probability bonus for carrot Easter egg during rain (added on top of base probability)")
+                    .defineInRange("probCarrotEasterEggRainBonus", 0.03, 0.0, 1.0);
+
+            probCarrotEasterEggThunderBonus = builder
+                    .comment("雷雨天时胡萝卜彩蛋的额外概率加成（叠加到基础概率上，与雨天加成独立叠加）")
+                    .comment("Additional probability bonus for carrot Easter egg during thunderstorm (added on top of base probability, stacks with rain bonus independently)")
+                    .defineInRange("probCarrotEasterEggThunderBonus", 0.055, 0.0, 1.0);
+
+            brickDamageEnable = builder
+                    .comment("打开红砖伤害，挖出砖时玩家受到固定伤害")
+                    .comment("Enable damage when player obtains a brick item by any means (fall, carrot easter egg)")
+                    .define("brickVoidDamageEnable", true);
+
+            brickDamageAmount = builder
+                    .comment("获得红砖时受到的伤害量（2.0 = 1颗心）")
+                    .comment("Amount of damage dealt when obtaining a brick (2.0 = 1 heart)")
+                    .defineInRange("brickVoidDamageAmount", 2.0, 0.0, 40.0);
 
             builder.pop();
         }
