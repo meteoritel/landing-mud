@@ -106,7 +106,7 @@ public class EventHandler {
                     player.getX(), player.getY(), player.getZ(),
                     new ItemStack(Items.BRICK)));
             applyBrickDamage(player);
-            LOGGER.debug("出砖啦！");
+            // LOGGER.debug("出砖啦！");
         }
         // 泥巴方块的转化处理，可疑方块填充自定义looter
         if (MudConfig.COMMON.conversionEnable.get()) {
@@ -120,7 +120,7 @@ public class EventHandler {
     private static void handleMudConversion(ServerLevel level, BlockPos pos, int fallBlocks) {
         // 获取配置阈值
         ConversionType target = ConversionType.fromHeight(fallBlocks);
-        LOGGER.debug("当前高度为{}，选择{}",fallBlocks, target.name());
+        // LOGGER.debug("当前高度为{}，选择{}",fallBlocks, target.name());
         double conversionChance = MudConfig.COMMON.probSuspiciousBlock.get();
 
         if (target == ConversionType.NO_CHANGE) {
@@ -132,7 +132,7 @@ public class EventHandler {
             if (RANDOM.nextDouble() >= conversionChance) {
                 // 转化失败：变成泥土
                 level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 3);
-                LOGGER.debug("退化为泥土");
+                // LOGGER.debug("退化为泥土");
                 return;
             }
         }
@@ -150,14 +150,14 @@ public class EventHandler {
                 // 延迟1tick再设置战利品表
                 level.getServer().execute(() -> {
                     setSuspiciousLootTable(level, pos, gravelLoot);
-                    LOGGER.debug("生成可疑砂砾 (维度: {})", level.dimension().location());
+                    // LOGGER.debug("生成可疑砂砾 (维度: {})", level.dimension().location());
                 });
             }
             case SUSPICIOUS_SAND -> {
                 level.setBlock(pos, Blocks.SUSPICIOUS_SAND.defaultBlockState(), 3);
                 level.getServer().execute(() -> {
                     setSuspiciousLootTable(level, pos, sandLoot);
-                    LOGGER.debug("生成可疑沙子 (维度: {})", level.dimension().location());
+                    // LOGGER.debug("生成可疑沙子 (维度: {})", level.dimension().location());
                 });
             }
             case BREAK_MUD -> {
@@ -247,11 +247,11 @@ public class EventHandler {
         double prob = MudConfig.COMMON.probCarrotEasterEgg.get();
         if (level.isRaining()) {
             prob += MudConfig.COMMON.probCarrotEasterEggRainBonus.get();
-            LOGGER.debug("雨天胡萝卜彩蛋加成，当前概率: {}", prob);
+            // LOGGER.debug("雨天胡萝卜彩蛋加成，当前概率: {}", prob);
         }
         if (level.isThundering()) {
             prob += MudConfig.COMMON.probCarrotEasterEggThunderBonus.get();
-            LOGGER.debug("雷雨天胡萝卜彩蛋加成，当前概率: {}", prob);
+            // LOGGER.debug("雷雨天胡萝卜彩蛋加成，当前概率: {}", prob);
         }
         // 概率上限 1.0
         return Math.min(prob, 1.0);
@@ -263,7 +263,7 @@ public class EventHandler {
         float damage = (float) MudConfig.COMMON.brickDamageAmount.get().doubleValue();
         DamageSource voidSource = player.level().damageSources().fellOutOfWorld();
         player.hurt(voidSource, damage);
-        LOGGER.debug("红砖伤害：{}点，玩家：{}", damage, player.getName().getString());
+        // LOGGER.debug("红砖伤害：{}点，玩家：{}", damage, player.getName().getString());
     }
 
     // 获得一个红砖或者随机任何一个陶片
